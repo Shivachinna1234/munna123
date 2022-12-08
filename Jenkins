@@ -1,0 +1,42 @@
+node {
+
+     stage('gitclone') {
+            git branch: 'main', credentialsId: 'e0e33ecf-c267-41c9-aa5f-762408a23fb6', url: 'https://github.com/Shivachinna1234/munna123.git'
+
+    }
+    stage('java version') {
+
+         sh 'java -version'
+
+    }
+    stage('maven version') {
+
+         sh 'mvn -version'
+
+    }
+    stage ('maven validate') {
+	
+         sh 'mvn validate'
+    }
+	stage('maven compile') {
+
+         sh 'mvn compile'
+    }
+    stage('maven test') {
+
+         sh 'mvn test'
+
+    }
+    stage('maven package') {
+
+         sh 'mvn package'
+    }
+    stage('maven deploy') {
+	
+	     sh 'mvn deploy'
+		 
+    }
+     
+	}
+
+
